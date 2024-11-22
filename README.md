@@ -19,60 +19,24 @@ This project provides a framework for analyzing data lineage and the impact of c
 
 ## Installation
 
-1. **Clone the Repository**:
-    ```bash
-    git clone <your-repo-url>
-    cd dbt-lineage-impact
-    ```
-
-2. **Install Dependencies**:
+1. **Install Dependencies**:
     ```bash
     pip install -r requirements.txt
     ```
 
-3. **Install DuckDB and DBT**:
-    ```bash
-    pip install duckdb dbt-core dbt-duckdb
-    ```
-
 ## Usage
 
-1. **Initialize DBT Project**:
-    Navigate to your DBT project directory and run:
-    ```bash
-    dbt init
-    ```
+### Command-Line Arguments
 
-2. **Configure DuckDB**:
-    Set up your `profiles.yml` file in `~/.dbt/`:
-    ```yaml
-    duckdb:
-      outputs:
-        dev:
-          type: duckdb
-          path: ':memory:'
-      target: dev
-    ```
+The main script accepts several arguments to customize its behavior:
 
-3. **Run the Analysis**:
-    Execute the main script to generate lineage and models:
-    ```bash
-    python main.py --mapping_csv_path ./data/Source_to_Target_Mapping.csv --source_entities_csv_path ./data/source_entities.csv --invalid_mappings_path ./data/invalid_mappings.json --output_dir ./output --analyze_missing
-    ```
+- `--mapping_csv_path`: Path to the Source to Target Mapping CSV file.
+- `--source_entities_csv_path`: Path to the Source Entities CSV file.
+- `--invalid_mappings_path`: Path to the Invalid Mappings JSON file.
+- `--output_dir`: Directory to store the output JSON files and DBT models.
+- `--analyze_missing`: Optional flag to analyze the impact of missing columns.
 
-4. **Generate and Serve DBT Docs**:
-    ```bash
-    dbt docs generate
-    dbt docs serve
-    ```
+### Example Command
 
-## Directory Structure
-
-- `models/`: Contains generated DBT models.
-- `data/`: Includes sample data files.
-- `output/`: Stores generated outputs and DBT project structure.
-- `lineage/`: Contains Python modules for lineage and impact analysis.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+```bash
+python main.py --mapping_csv_path ./data/Source_to_Target_Mapping.csv --source_entities_csv_path ./data/source_entities.csv --invalid_mappings_path ./data/invalid_mappings.json --output_dir ./output --analyze_missing
