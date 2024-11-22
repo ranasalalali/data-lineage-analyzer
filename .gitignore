@@ -3,17 +3,18 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# DBT Target and Temporary Files
-*/target/
-*/dbt_modules/
-*/logs/
-*/.mypy_cache/
-*/.pytest_cache/
+# DBT Target and Temporary Files inside the output folder
+output/dbt_sample_project/target/
+output/dbt_sample_project/dbt_modules/
+output/dbt_sample_project/logs/
+output/dbt_sample_project/.mypy_cache/
+output/dbt_sample_project/.pytest_cache/
 
-# Local Configurations
-*/profiles/
+# DBT Configurations
+output/dbt_sample_project/.dbt/
+output/dbt_sample_project/profiles/
 
-# Environment Files
+# Local Environment
 .env
 *.env
 
@@ -40,7 +41,6 @@ develop-eggs/
 .installed.cfg
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
 *.manifest
 *.spec
 
