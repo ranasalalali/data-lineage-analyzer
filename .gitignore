@@ -14,6 +14,7 @@ output/dbt_sample_project/.pytest_cache/
 output/dbt_sample_project/.dbt/
 output/dbt_sample_project/profiles/
 output/dbt_sample_project/.user.yml
+output/dbt_sample_project/*.duckdb
 
 # Local Environment
 .env
