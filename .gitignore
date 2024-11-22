@@ -13,6 +13,7 @@ output/dbt_sample_project/.pytest_cache/
 # DBT Configurations
 output/dbt_sample_project/.dbt/
 output/dbt_sample_project/profiles/
+output/dbt_sample_project/.user.yml
 
 # Local Environment
 .env
