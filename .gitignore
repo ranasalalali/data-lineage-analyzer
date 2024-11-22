@@ -1,0 +1,74 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# DBT Target and Temporary Files
+dbt_sample_project/target/
+dbt_sample_project/dbt_modules/
+dbt_sample_project/logs/
+dbt_sample_project/.mypy_cache/
+dbt_sample_project/.pytest_cache/
+
+# Local Configurations
+dbt_sample_project/profiles/
+
+# Environment Files
+.env
+*.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# Compiled C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Pyre type checker
+.pyre/
+
+# Mypy
+.mypy_cache/
+
+# Caches
+*.mypy_cache/
+*.pytest_cache/
+*.hypothesis/
+__pycache__/
+
+# Backup files
+*~

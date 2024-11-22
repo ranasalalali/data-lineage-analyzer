@@ -1,0 +1,10 @@
+name: 'sample_project'
+version: '1.0'
+profile: 'duckdb'
+config-version: 2
+
+model-paths: ['models']
+target-path: 'target'
+clean-targets:
+  - 'target'
+  - 'dbt_modules'

@@ -1,0 +1,227 @@
+[0m11:28:05.957651 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10274dfd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1057afed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1057afd90>]}
+
+
+============================== 11:28:05.960434 | 309ed1e4-b663-4ac9-973b-887c99b46244 ==============================
+[0m11:28:05.960434 [info ] [MainThread]: Running with dbt=1.8.8
+[0m11:28:05.960788 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project/logs', 'version_check': 'True', 'profiles_dir': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:28:06.000096 [info ] [MainThread]: Setting up your profile.
+[0m11:28:20.887550 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 14.976761, "process_user_time": 0.674253, "process_kernel_time": 0.197261, "process_mem_max_rss": "114540544", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m11:28:20.887976 [debug] [MainThread]: Command `dbt init` succeeded at 11:28:20.887904 after 14.98 seconds
+[0m11:28:20.888185 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1057d9350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1058e6c30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10583b680>]}
+[0m11:28:20.888373 [debug] [MainThread]: Flushing usage events
+[0m11:28:31.069406 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102c4dfd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104aebed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104aebc50>]}
+
+
+============================== 11:28:31.072106 | 3c9b798b-1154-4dd2-9995-0d14227760cd ==============================
+[0m11:28:31.072106 [info ] [MainThread]: Running with dbt=1.8.8
+[0m11:28:31.072449 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt docs generate', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:28:31.197533 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fcc050>]}
+[0m11:28:31.221043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1047db680>]}
+[0m11:28:31.223734 [info ] [MainThread]: Registered adapter: duckdb=1.9.0
+[0m11:28:31.275681 [debug] [MainThread]: checksum: ec53e341a936509427e16df1c646386a84befec52c1957e3f4359fbc36fc93f5, vars: {}, profile: , target: , version: 1.8.8
+[0m11:28:31.277095 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m11:28:31.277332 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104bb1550>]}
+[0m11:28:31.794821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10501e5d0>]}
+[0m11:28:31.809878 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1053da7b0>]}
+[0m11:28:31.810169 [info ] [MainThread]: Found 5 models, 3 sources, 416 macros
+[0m11:28:31.810334 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f12c30>]}
+[0m11:28:31.811349 [info ] [MainThread]: 
+[0m11:28:31.811666 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:28:31.814121 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_dev_main'
+[0m11:28:31.916554 [debug] [ThreadPool]: Using duckdb connection "list_dev_main"
+[0m11:28:31.916820 [debug] [ThreadPool]: On list_dev_main: BEGIN
+[0m11:28:31.916954 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:31.921956 [debug] [ThreadPool]: SQL status: OK in 0.005 seconds
+[0m11:28:31.922197 [debug] [ThreadPool]: Using duckdb connection "list_dev_main"
+[0m11:28:31.922354 [debug] [ThreadPool]: On list_dev_main: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "duckdb", "target_name": "dev", "connection_name": "list_dev_main"} */
+select
+      'dev' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'dev'
+  
+[0m11:28:31.941267 [debug] [ThreadPool]: SQL status: OK in 0.019 seconds
+[0m11:28:31.942195 [debug] [ThreadPool]: On list_dev_main: ROLLBACK
+[0m11:28:31.943231 [debug] [ThreadPool]: Failed to rollback 'list_dev_main'
+[0m11:28:31.943423 [debug] [ThreadPool]: On list_dev_main: Close
+[0m11:28:31.945022 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3c9b798b-1154-4dd2-9995-0d14227760cd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fd3890>]}
+[0m11:28:31.946565 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:28:31.946822 [info ] [MainThread]: 
+[0m11:28:31.948977 [debug] [Thread-1 (]: Began running node model.sample_project.staging_customers
+[0m11:28:31.949326 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_dev_main, now model.sample_project.staging_customers)
+[0m11:28:31.953298 [debug] [Thread-1 (]: Began compiling node model.sample_project.staging_customers
+[0m11:28:31.959225 [debug] [Thread-1 (]: Writing injected SQL for node "model.sample_project.staging_customers"
+[0m11:28:31.960517 [debug] [Thread-1 (]: Began executing node model.sample_project.staging_customers
+[0m11:28:31.960909 [debug] [Thread-1 (]: Finished running node model.sample_project.staging_customers
+[0m11:28:31.961373 [debug] [Thread-1 (]: Began running node model.sample_project.staging_orders
+[0m11:28:31.961714 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.sample_project.staging_customers, now model.sample_project.staging_orders)
+[0m11:28:31.961917 [debug] [Thread-1 (]: Began compiling node model.sample_project.staging_orders
+[0m11:28:31.965380 [debug] [Thread-1 (]: Writing injected SQL for node "model.sample_project.staging_orders"
+[0m11:28:31.965987 [debug] [Thread-1 (]: Began executing node model.sample_project.staging_orders
+[0m11:28:31.966332 [debug] [Thread-1 (]: Finished running node model.sample_project.staging_orders
+[0m11:28:31.966503 [debug] [Thread-1 (]: Began running node model.sample_project.staging_sales
+[0m11:28:31.966840 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.sample_project.staging_orders, now model.sample_project.staging_sales)
+[0m11:28:31.967113 [debug] [Thread-1 (]: Began compiling node model.sample_project.staging_sales
+[0m11:28:31.968543 [debug] [Thread-1 (]: Writing injected SQL for node "model.sample_project.staging_sales"
+[0m11:28:31.968980 [debug] [Thread-1 (]: Began executing node model.sample_project.staging_sales
+[0m11:28:31.969313 [debug] [Thread-1 (]: Finished running node model.sample_project.staging_sales
+[0m11:28:31.969504 [debug] [Thread-1 (]: Began running node model.sample_project.analytics_customers
+[0m11:28:31.969705 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.sample_project.staging_sales, now model.sample_project.analytics_customers)
+[0m11:28:31.969878 [debug] [Thread-1 (]: Began compiling node model.sample_project.analytics_customers
+[0m11:28:31.971143 [debug] [Thread-1 (]: Writing injected SQL for node "model.sample_project.analytics_customers"
+[0m11:28:31.971601 [debug] [Thread-1 (]: Began executing node model.sample_project.analytics_customers
+[0m11:28:31.972011 [debug] [Thread-1 (]: Finished running node model.sample_project.analytics_customers
+[0m11:28:31.972182 [debug] [Thread-1 (]: Began running node model.sample_project.analytics_sales
+[0m11:28:31.972357 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.sample_project.analytics_customers, now model.sample_project.analytics_sales)
+[0m11:28:31.972497 [debug] [Thread-1 (]: Began compiling node model.sample_project.analytics_sales
+[0m11:28:31.974023 [debug] [Thread-1 (]: Writing injected SQL for node "model.sample_project.analytics_sales"
+[0m11:28:31.974429 [debug] [Thread-1 (]: Began executing node model.sample_project.analytics_sales
+[0m11:28:31.974716 [debug] [Thread-1 (]: Finished running node model.sample_project.analytics_sales
+[0m11:28:31.975185 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:28:31.975314 [debug] [MainThread]: Connection 'model.sample_project.analytics_sales' was properly closed.
+[0m11:28:31.975792 [debug] [MainThread]: Command end result
+[0m11:28:32.014330 [debug] [MainThread]: Acquiring new duckdb connection 'generate_catalog'
+[0m11:28:32.014531 [info ] [MainThread]: Building catalog
+[0m11:28:32.018723 [debug] [ThreadPool]: Acquiring new duckdb connection 'dev.information_schema'
+[0m11:28:32.022329 [debug] [ThreadPool]: Using duckdb connection "dev.information_schema"
+[0m11:28:32.022559 [debug] [ThreadPool]: On dev.information_schema: BEGIN
+[0m11:28:32.022691 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:28:32.026990 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m11:28:32.027186 [debug] [ThreadPool]: Using duckdb connection "dev.information_schema"
+[0m11:28:32.027348 [debug] [ThreadPool]: On dev.information_schema: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "duckdb", "target_name": "dev", "connection_name": "dev.information_schema"} */
+with relations AS (
+      select
+        t.table_name
+        , t.database_name
+        , t.schema_name
+        , 'BASE TABLE' as table_type
+        , t.comment as table_comment
+      from duckdb_tables() t
+      WHERE t.database_name = 'dev'
+      UNION ALL
+      SELECT v.view_name as table_name
+      , v.database_name
+      , v.schema_name
+      , 'VIEW' as table_type
+      , v.comment as table_comment
+      from duckdb_views() v
+      WHERE v.database_name = 'dev'
+    )
+    select
+        'dev' as table_database,
+        r.schema_name as table_schema,
+        r.table_name,
+        r.table_type,
+        r.table_comment,
+        c.column_name,
+        c.column_index as column_index,
+        c.data_type as column_type,
+        c.comment as column_comment,
+        '' as table_owner
+    FROM relations r JOIN duckdb_columns() c ON r.schema_name = c.schema_name AND r.table_name = c.table_name
+    WHERE (upper(r.schema_name) = upper('main'))
+    ORDER BY
+        r.schema_name,
+        r.table_name,
+        c.column_index
+[0m11:28:32.046602 [debug] [ThreadPool]: SQL status: OK in 0.019 seconds
+[0m11:28:32.056744 [debug] [ThreadPool]: On dev.information_schema: ROLLBACK
+[0m11:28:32.057117 [debug] [ThreadPool]: Failed to rollback 'dev.information_schema'
+[0m11:28:32.057249 [debug] [ThreadPool]: On dev.information_schema: Close
+[0m11:28:32.058598 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly dev.information_schema, now raw.information_schema)
+[0m11:28:32.059429 [debug] [ThreadPool]: Using duckdb connection "raw.information_schema"
+[0m11:28:32.059565 [debug] [ThreadPool]: On raw.information_schema: BEGIN
+[0m11:28:32.059676 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:28:32.063869 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m11:28:32.064079 [debug] [ThreadPool]: Using duckdb connection "raw.information_schema"
+[0m11:28:32.064241 [debug] [ThreadPool]: On raw.information_schema: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "duckdb", "target_name": "dev", "connection_name": "raw.information_schema"} */
+with relations AS (
+      select
+        t.table_name
+        , t.database_name
+        , t.schema_name
+        , 'BASE TABLE' as table_type
+        , t.comment as table_comment
+      from duckdb_tables() t
+      WHERE t.database_name = 'dev'
+      UNION ALL
+      SELECT v.view_name as table_name
+      , v.database_name
+      , v.schema_name
+      , 'VIEW' as table_type
+      , v.comment as table_comment
+      from duckdb_views() v
+      WHERE v.database_name = 'dev'
+    )
+    select
+        'dev' as table_database,
+        r.schema_name as table_schema,
+        r.table_name,
+        r.table_type,
+        r.table_comment,
+        c.column_name,
+        c.column_index as column_index,
+        c.data_type as column_type,
+        c.comment as column_comment,
+        '' as table_owner
+    FROM relations r JOIN duckdb_columns() c ON r.schema_name = c.schema_name AND r.table_name = c.table_name
+    WHERE (upper(r.schema_name) = upper('silver'))
+    ORDER BY
+        r.schema_name,
+        r.table_name,
+        c.column_index
+[0m11:28:32.082128 [debug] [ThreadPool]: SQL status: OK in 0.018 seconds
+[0m11:28:32.083369 [debug] [ThreadPool]: On raw.information_schema: ROLLBACK
+[0m11:28:32.083773 [debug] [ThreadPool]: Failed to rollback 'raw.information_schema'
+[0m11:28:32.083921 [debug] [ThreadPool]: On raw.information_schema: Close
+[0m11:28:32.106137 [info ] [MainThread]: Catalog written to /Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project/target/catalog.json
+[0m11:28:32.107389 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_success": true, "command_wall_clock_time": 1.0758396, "process_user_time": 1.452935, "process_kernel_time": 0.236148, "process_mem_max_rss": "146145280", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m11:28:32.107737 [debug] [MainThread]: Command `dbt docs generate` succeeded at 11:28:32.107685 after 1.08 seconds
+[0m11:28:32.107908 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m11:28:32.108030 [debug] [MainThread]: Connection 'raw.information_schema' was properly closed.
+[0m11:28:32.108191 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10502edb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fb8d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104fb8870>]}
+[0m11:28:32.108356 [debug] [MainThread]: Flushing usage events
+[0m11:28:36.631055 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a49fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfafed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfafc50>]}
+
+
+============================== 11:28:36.633526 | 185fd9c5-cb91-4bb0-b30f-227318124c98 ==============================
+[0m11:28:36.633526 [info ] [MainThread]: Running with dbt=1.8.8
+[0m11:28:36.633883 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project', 'debug': 'False', 'warn_error': 'None', 'log_path': '/Users/ranasalal.ali/project-repos/PoCs/lineage-generator/output/dbt_sample_project/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt docs serve', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:28:36.750095 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '185fd9c5-cb91-4bb0-b30f-227318124c98', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d5cc050>]}
+[0m11:28:36.775441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '185fd9c5-cb91-4bb0-b30f-227318124c98', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bddbac0>]}
+[0m11:30:37.498662 [error] [MainThread]: Encountered an error:
+
+[0m11:30:37.507425 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/requires.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/requires.py", line 247, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/requires.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/cli/main.py", line 303, in docs_serve
+    results = task.run()
+  File "/Users/ranasalal.ali/project-envs/cpa-dbt/lib/python3.13/site-packages/dbt/task/docs/serve.py", line 29, in run
+    httpd.serve_forever()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socketserver.py", line 235, in serve_forever
+    ready = selector.select(poll_interval)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/selectors.py", line 398, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+
+[0m11:30:37.512248 [debug] [MainThread]: Resource report: {"command_name": "serve", "command_wall_clock_time": 120.93021, "process_user_time": 0.739265, "process_kernel_time": 0.172676, "process_mem_max_rss": "118620160", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m11:30:37.513410 [debug] [MainThread]: Command `dbt docs serve` failed at 11:30:37.513209 after 120.93 seconds
+[0m11:30:37.514127 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d18be50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d18bd50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d6265d0>]}
+[0m11:30:37.514689 [debug] [MainThread]: Flushing usage events

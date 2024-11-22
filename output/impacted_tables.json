@@ -1,0 +1,6 @@
+{
+    "impacted_tables": [
+        "staging_customers",
+        "analytics_sales"
+    ]
+}

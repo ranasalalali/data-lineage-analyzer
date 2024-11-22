@@ -1,0 +1,8 @@
+Source Table,Source Column,Target Table,Target Schema,Target Column,Column Type,Transformation
+customers,CustomerID,staging_orders,staging_schema,CustomerID,string,Direct Mapping
+customers,Email,staging_customers,staging_schema,CustomerEmail,string,Direct Mapping
+orders,OrderID,staging_sales,staging_schema,OrderID,string,Direct Mapping
+staging_orders,CustomerID,analytics_customers,analytics_schema,CustomerID,string,Direct Mapping
+staging_sales,OrderID,analytics_sales,analytics_schema,OrderID,string,Direct Mapping
+staging_sales,Amount,analytics_sales,analytics_schema,TotalAmount,decimal,Aggregation
+products,ProductID,staging_orders,staging_schema,ProductID,string,Direct Mapping

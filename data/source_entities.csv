@@ -1,0 +1,11 @@
+TableName,ColumnName
+Customers,CustomerID
+Customers,Name
+Customers,Email
+Orders,OrderID
+Orders,OrderDate
+Orders,CustomerID
+Orders,ProductID
+Orders,Amount
+Products,ProductID
+Products,ProductName

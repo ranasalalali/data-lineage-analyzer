@@ -1,0 +1,14 @@
+[
+    {
+        "entity": "Customers",
+        "attribute_name": "Email",
+        "original_type": "string",
+        "incoming_type": "integer"
+    },
+    {
+        "entity": "Orders",
+        "attribute_name": "Amount",
+        "original_type": "decimal",
+        "incoming_type": "string"
+    }
+]

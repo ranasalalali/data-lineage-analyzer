@@ -1,0 +1,175 @@
+[
+    {
+        "initial_source_table": "Customers",
+        "impacted_columns": [
+            "email"
+        ],
+        "lineage": {
+            "customers": {
+                "children": [
+                    "staging_schema.staging_customers",
+                    "staging_schema.staging_orders"
+                ],
+                "parents": []
+            },
+            "staging_schema.staging_orders": {
+                "children": [
+                    "analytics_schema.analytics_customers"
+                ],
+                "parents": [
+                    "customers"
+                ]
+            },
+            "staging_schema.staging_customers": {
+                "children": [],
+                "parents": [
+                    "customers"
+                ]
+            },
+            "analytics_schema.analytics_customers": {
+                "children": [],
+                "parents": [
+                    "staging_schema.staging_orders"
+                ]
+            }
+        },
+        "impacts": [
+            {
+                "source_table": "customers",
+                "source_column": "email",
+                "target_table": "staging_customers",
+                "target_column": "customeremail",
+                "target_column_type": "string",
+                "transformation": "Direct Mapping",
+                "depth": 1
+            }
+        ]
+    },
+    {
+        "initial_source_table": "Orders",
+        "impacted_columns": [
+            "amount"
+        ],
+        "lineage": {
+            "customers": {
+                "children": [
+                    "staging_schema.staging_customers",
+                    "staging_schema.staging_orders"
+                ],
+                "parents": []
+            },
+            "staging_schema.staging_orders": {
+                "children": [
+                    "analytics_schema.analytics_customers"
+                ],
+                "parents": [
+                    "customers"
+                ]
+            },
+            "staging_schema.staging_customers": {
+                "children": [],
+                "parents": [
+                    "customers"
+                ]
+            },
+            "analytics_schema.analytics_customers": {
+                "children": [],
+                "parents": [
+                    "staging_schema.staging_orders"
+                ]
+            },
+            "orders": {
+                "children": [
+                    "staging_schema.staging_sales"
+                ],
+                "parents": []
+            },
+            "staging_schema.staging_sales": {
+                "children": [
+                    "analytics_schema.analytics_sales"
+                ],
+                "parents": [
+                    "orders"
+                ]
+            },
+            "analytics_schema.analytics_sales": {
+                "children": [],
+                "parents": [
+                    "staging_schema.staging_sales"
+                ]
+            }
+        },
+        "impacts": [
+            {
+                "source_table": "staging_schema.staging_sales",
+                "source_column": "amount",
+                "target_table": "analytics_sales",
+                "target_column": "totalamount",
+                "target_column_type": "decimal",
+                "transformation": "Aggregation",
+                "depth": 2
+            }
+        ]
+    },
+    {
+        "initial_source_table": "Products",
+        "impacted_columns": [],
+        "lineage": {
+            "customers": {
+                "children": [
+                    "staging_schema.staging_customers",
+                    "staging_schema.staging_orders"
+                ],
+                "parents": []
+            },
+            "staging_schema.staging_orders": {
+                "children": [
+                    "analytics_schema.analytics_customers"
+                ],
+                "parents": [
+                    "products",
+                    "customers"
+                ]
+            },
+            "staging_schema.staging_customers": {
+                "children": [],
+                "parents": [
+                    "customers"
+                ]
+            },
+            "analytics_schema.analytics_customers": {
+                "children": [],
+                "parents": [
+                    "staging_schema.staging_orders"
+                ]
+            },
+            "orders": {
+                "children": [
+                    "staging_schema.staging_sales"
+                ],
+                "parents": []
+            },
+            "staging_schema.staging_sales": {
+                "children": [
+                    "analytics_schema.analytics_sales"
+                ],
+                "parents": [
+                    "orders"
+                ]
+            },
+            "analytics_schema.analytics_sales": {
+                "children": [],
+                "parents": [
+                    "staging_schema.staging_sales"
+                ]
+            },
+            "products": {
+                "children": [
+                    "staging_schema.staging_orders"
+                ],
+                "parents": []
+            }
+        },
+        "impacts": []
+    }
+]

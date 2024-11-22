@@ -1,0 +1,10 @@
+# DBT and DuckDB
+dbt-core>=1.0.0
+dbt-duckdb
+
+# Data processing
+pandas>=1.0.0
+pyyaml
+
+# Optional: For testing and development
+duckdb
