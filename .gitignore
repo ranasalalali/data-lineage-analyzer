@@ -4,14 +4,14 @@ __pycache__/
 *$py.class
 
 # DBT Target and Temporary Files
-dbt_sample_project/target/
-dbt_sample_project/dbt_modules/
-dbt_sample_project/logs/
-dbt_sample_project/.mypy_cache/
-dbt_sample_project/.pytest_cache/
+output/dbt_sample_project/target/
+output/dbt_sample_project/dbt_modules/
+output/dbt_sample_project/logs/
+output/dbt_sample_project/.mypy_cache/
+output/dbt_sample_project/.pytest_cache/
 
 # Local Configurations
-dbt_sample_project/profiles/
+output/dbt_sample_project/profiles/
 
 # Environment Files
 .env
