@@ -19,6 +19,8 @@ output/dbt_sample_project/*.duckdb
 # Local Environment
 .env
 *.env
+.venv/
+
 
 # System Files
 .DS_Store
