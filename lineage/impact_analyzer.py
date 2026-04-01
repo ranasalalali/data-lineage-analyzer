@@ -13,7 +13,7 @@ def trace_lineage_with_impact(
     initial_source_table: str,
     impacted_columns: list[str],
     lineage_graph: LineageGraph,
-    type_changes: dict[str, Any],
+    type_changes: dict[str, dict[str, str]],
 ) -> tuple[list[dict[str, Any]], set[str]]:
     distinct_targets = set()
     queue = deque([(initial_source_table.lower(), 0)])
@@ -52,17 +52,18 @@ def trace_lineage_with_impact(
             lineage_graph.add_edge(current_source_table, next_source_table)
 
             if source_column in impacted_columns_lower:
-                impacts.append(
-                    {
-                        "source_table": current_source_table,
-                        "source_column": source_column,
-                        "target_table": target_table,
-                        "target_column": target_column,
-                        "target_column_type": target_column_type,
-                        "transformation": transformation,
-                        "depth": depth + 1,
-                    }
-                )
+                impact_record: dict[str, Any] = {
+                    "source_table": current_source_table,
+                    "source_column": source_column,
+                    "target_table": target_table,
+                    "target_column": target_column,
+                    "target_column_type": target_column_type,
+                    "transformation": transformation,
+                    "depth": depth + 1,
+                }
+                if source_column in type_changes:
+                    impact_record["type_change"] = type_changes[source_column]
+                impacts.append(impact_record)
 
                 impacted_tables.add(target_table.lower())
 

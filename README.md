@@ -51,6 +51,8 @@ python main.py \
 
 ## CLI options
 
+Run `uv run data-lineage-analyzer --help` to see the full generated help text.
+
 ```text
 --mapping_csv_path         Path to the source-to-target mapping CSV
 --source_entities_csv_path Path to the source entities CSV
@@ -63,7 +65,7 @@ python main.py \
 
 Running the tool writes:
 
-- `impact_analysis.json` — per-source lineage summary and direct/downstream impact records
+- `impact_analysis.json` — per-source lineage summary, `type_changes` summary for the affected source columns, and direct/downstream impact records
 - `impacted_tables.json` — impacted table names
 - `dbt_sample_project/models/sources.yml` — dbt source definitions for source tables
 - `dbt_sample_project/models/*.sql` — generated model stubs for downstream nodes
@@ -82,4 +84,4 @@ uv run ruff check .
 
 - The current dbt SQL generation is intentionally lightweight and emits simple `select *` model stubs.
 - Impact propagation is still based primarily on matching impacted column names across lineage steps; it is useful for coarse analysis, but not yet a full semantic lineage engine.
-- `type_changes` metadata is loaded but not yet surfaced in the output beyond preserving the current behavior envelope. That is a sensible next enhancement if richer reporting is needed.
+- `type_changes` metadata is now surfaced in `impact_analysis.json` for each affected source table and on direct impact records, but propagation logic still remains intentionally simple.

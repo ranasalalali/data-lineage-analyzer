@@ -11,9 +11,16 @@ from lineage.impact_analyzer import trace_lineage_with_impact
 from lineage.lineage_graph import LineageGraph
 from lineage.utils import save_json
 
+TYPE_CHANGE_FIELDS = ("entity", "attribute_name", "original_type", "incoming_type")
+
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Process lineage data.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Analyze source-to-target lineage mappings, report downstream impacts, "
+            "and generate lightweight dbt scaffolding."
+        )
+    )
     parser.add_argument(
         "--mapping_csv_path",
         type=Path,
@@ -59,6 +66,21 @@ def output_impacted_lineage(
     with invalid_mappings_path.open("r", encoding="utf-8") as file_obj:
         invalid_mappings = json.load(file_obj)
 
+    if not isinstance(invalid_mappings, list):
+        raise ValueError("Invalid mappings JSON must contain a list of mapping entries.")
+
+    missing_fields = [
+        sorted(set(TYPE_CHANGE_FIELDS) - set(entry))
+        for entry in invalid_mappings
+        if not set(TYPE_CHANGE_FIELDS).issubset(entry)
+    ]
+    if missing_fields:
+        raise ValueError(
+            "Each invalid mapping entry must include: "
+            + ", ".join(TYPE_CHANGE_FIELDS)
+            + f". Missing fields found: {missing_fields[0]}"
+        )
+
     initial_sources = source_entities_df["TableName"].dropna().unique()
     type_changes = {
         entry["attribute_name"].lower(): {
@@ -92,6 +114,11 @@ def output_impacted_lineage(
             {
                 "initial_source_table": initial_source_table,
                 "impacted_columns": impacted_columns,
+                "type_changes": {
+                    column: type_changes[column]
+                    for column in impacted_columns
+                    if column in type_changes
+                },
                 "lineage": {
                     node: {
                         "children": combined_lineage_graph.get_children(node),
@@ -139,13 +166,16 @@ def output_impacted_lineage(
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
-    output_impacted_lineage(
-        mapping_csv_path=args.mapping_csv_path,
-        source_entities_csv_path=args.source_entities_csv_path,
-        invalid_mappings_path=args.invalid_mappings_path,
-        output_dir=args.output_dir,
-        analyze_missing=args.analyze_missing,
-    )
+    try:
+        output_impacted_lineage(
+            mapping_csv_path=args.mapping_csv_path,
+            source_entities_csv_path=args.source_entities_csv_path,
+            invalid_mappings_path=args.invalid_mappings_path,
+            output_dir=args.output_dir,
+            analyze_missing=args.analyze_missing,
+        )
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        parser.exit(2, f"error: {exc}\n")
 
 
 if __name__ == "__main__":

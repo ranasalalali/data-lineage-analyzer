@@ -3,7 +3,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from lineage.cli import output_impacted_lineage
+import pytest
+
+from lineage.cli import build_parser, output_impacted_lineage
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = REPO_ROOT / "data"
@@ -33,3 +35,24 @@ def test_output_impacted_lineage_generates_expected_artifacts(tmp_path: Path) ->
     assert "impacted_tables" in impacted_tables
     assert isinstance(impacted_tables["impacted_tables"], list)
     assert any(models_dir.glob("*.sql")), "Expected dbt model files to be generated"
+
+    customers_entry = next(
+        item for item in impact_analysis if item["initial_source_table"] == "Customers"
+    )
+    assert customers_entry["type_changes"] == {
+        "email": {"original_type": "string", "incoming_type": "integer"}
+    }
+    assert any("type_change" in impact for impact in customers_entry["impacts"])
+
+
+def test_build_parser_help_includes_missing_analysis_flag(
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    parser = build_parser()
+
+    with pytest.raises(SystemExit):
+        parser.parse_args(["--help"])
+
+    captured = capsys.readouterr()
+    assert "--analyze_missing" in captured.out
+    assert "lightweight dbt scaffolding" in captured.out
