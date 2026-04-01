@@ -1,42 +1,85 @@
-# DBT Lineage Impact
+# data-lineage-analyzer
 
-## Overview
+Small Python utility for analyzing source-to-target lineage mappings, tracing downstream impact from invalid source columns, and generating lightweight dbt scaffolding from the discovered graph.
 
-This project provides a framework for analyzing data lineage and the impact of changes in source columns using DBT and DuckDB. It allows users to trace data flows through various stages and visualize the effects of column changes on downstream tables.
+## What it does
 
-## Features
+- loads mapping and source-entity metadata from CSV files
+- loads invalid/type-changed column definitions from JSON
+- traces downstream impacts for affected columns
+- writes JSON reports with lineage and impacted tables
+- generates a simple `sources.yml` plus dbt model SQL files for discovered downstream nodes
 
-- Trace data lineage from source to target tables.
-- Analyze the impact of column changes as specified in `invalid_mappings.json`.
-- Generate DBT models and documentation.
-- Serve DBT documentation locally.
+## Repository layout
 
-## Prerequisites
+- `lineage/` — package code
+- `data/` — sample input files used by the repo today
+- `output/` — sample generated artifacts already committed in the repo
+- `tests/` — smoke/integration-style validation against the sample inputs
+- `main.py` — compatibility wrapper that calls the packaged CLI
 
-- Python 3.x
-- DuckDB
-- DBT
+## Requirements
 
-## Installation
+- Python 3.9+
+- [`uv`](https://docs.astral.sh/uv/) recommended for environment and dependency management
 
-1. **Install Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Usage
-
-### Command-Line Arguments
-
-The main script accepts several arguments to customize its behavior:
-
-- `--mapping_csv_path`: Path to the Source to Target Mapping CSV file.
-- `--source_entities_csv_path`: Path to the Source Entities CSV file.
-- `--invalid_mappings_path`: Path to the Invalid Mappings JSON file.
-- `--output_dir`: Directory to store the output JSON files and DBT models.
-- `--analyze_missing`: Optional flag to analyze the impact of missing columns.
-
-### Example Command
+## Quick start with uv
 
 ```bash
-python main.py --mapping_csv_path ./data/Source_to_Target_Mapping.csv --source_entities_csv_path ./data/source_entities.csv --invalid_mappings_path ./data/invalid_mappings.json --output_dir ./output --analyze_missing
+uv sync --extra dev
+uv run data-lineage-analyzer \
+  --mapping_csv_path ./data/Source_to_Target_Mapping.csv \
+  --source_entities_csv_path ./data/source_entities.csv \
+  --invalid_mappings_path ./data/invalid_mappings.json \
+  --output_dir ./output/generated \
+  --analyze_missing
+```
+
+## Alternative: plain pip
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+python main.py \
+  --mapping_csv_path ./data/Source_to_Target_Mapping.csv \
+  --source_entities_csv_path ./data/source_entities.csv \
+  --invalid_mappings_path ./data/invalid_mappings.json \
+  --output_dir ./output/generated \
+  --analyze_missing
+```
+
+## CLI options
+
+```text
+--mapping_csv_path         Path to the source-to-target mapping CSV
+--source_entities_csv_path Path to the source entities CSV
+--invalid_mappings_path    Path to the invalid mappings JSON
+--output_dir               Directory to write JSON reports and generated dbt models
+--analyze_missing          Also report missing source columns referenced by mappings
+```
+
+## Outputs
+
+Running the tool writes:
+
+- `impact_analysis.json` — per-source lineage summary and direct/downstream impact records
+- `impacted_tables.json` — impacted table names
+- `dbt_sample_project/models/sources.yml` — dbt source definitions for source tables
+- `dbt_sample_project/models/*.sql` — generated model stubs for downstream nodes
+
+## Development
+
+Install dev dependencies and run the checks:
+
+```bash
+uv sync --extra dev
+uv run pytest
+uv run ruff check .
+```
+
+## Notes and limitations
+
+- The current dbt SQL generation is intentionally lightweight and emits simple `select *` model stubs.
+- Impact propagation is still based primarily on matching impacted column names across lineage steps; it is useful for coarse analysis, but not yet a full semantic lineage engine.
+- `type_changes` metadata is loaded but not yet surfaced in the output beyond preserving the current behavior envelope. That is a sensible next enhancement if richer reporting is needed.

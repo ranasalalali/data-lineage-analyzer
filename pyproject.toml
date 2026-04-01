@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "data-lineage-analyzer"
+version = "0.1.0"
+description = "Analyze lineage mappings, identify downstream impacts, and generate simple dbt model scaffolding."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Rana Salal Ali" }
+]
+dependencies = [
+  "pandas>=1.5",
+  "pyyaml>=6.0",
+  "dbt-core>=1.0.0",
+  "dbt-duckdb>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6.0",
+]
+
+[project.scripts]
+data-lineage-analyzer = "lineage.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["lineage"]
+
+[tool.ruff]
+line-length = 100
+
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
